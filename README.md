@@ -1,6 +1,8 @@
 Udacity Javascript Game Assignment
 ===============================
 
+To "install" the game just put all of these files in any folder and run (double click on) the "index.html" file.
+
 This game is part of an assignment for a Udacity class.
 
 In order to play use the arrow keys on your keyboard to move the character
