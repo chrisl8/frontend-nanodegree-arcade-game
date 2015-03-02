@@ -50,11 +50,11 @@ Enemy.prototype.render = function() {
     // Add some fun text to any enemy who recently hit the player
     if (this.hitPlayerRecently) {
         if (this.hitTimeout < 25) {
-            ctx.font = "24pt impact";
-            ctx.fillStyle = "red";
-            ctx.strokeStyle = "black";
-            ctx.fillText("Gotchya!", this.x - 55, this.y + 70);
-            ctx.strokeText("Gotchya!", this.x - 55, this.y + 70);
+            ctx.font = '24pt impact';
+            ctx.fillStyle = 'red';
+            ctx.strokeStyle = 'black';
+            ctx.fillText('Gotchya!', this.x - 55, this.y + 70);
+            ctx.strokeText('Gotchya!', this.x - 55, this.y + 70);
             this.hitTimeout += 1;
         } else {
             this.hitPlayerRecently = false;
@@ -88,7 +88,7 @@ Player.prototype.checkForCollision = function(element, index, array) {
         if (element.y >= playerY - 10 && element.y <= playerY + 10) {
             // Put player back on the bottom row when he is hit.
             this.row = 5;
-            // Set a temporary "hit" variable to use in the enemy function.
+            // Set a temporary 'hit' variable to use in the enemy function.
             element.hitPlayerRecently = true;
             element.hitTimeout = 0;
             // Increase this enemy's speed after hitting the player.
@@ -100,16 +100,16 @@ Player.prototype.checkForCollision = function(element, index, array) {
 };
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x(), this.y());
-    ctx.font = "24pt impact";
-    ctx.fillStyle = "black";
-    ctx.fillText("Crossings: " + this.crossings, 300, 576);
+    ctx.font = '24pt impact';
+    ctx.fillStyle = 'black';
+    ctx.fillText('Crossings: ' + this.crossings, 300, 576);
 };
 Player.prototype.handleInput = function(keycode) {
     //console.log(keycode);
-    if (keycode === "right") {
+    if (keycode === 'right') {
         this.col += 1;
     }
-    if (keycode === "left") {
+    if (keycode === 'left') {
         this.col -= 1;
     }
     // Do not allow player to go off of screen.
@@ -119,10 +119,10 @@ Player.prototype.handleInput = function(keycode) {
     if (this.col < 0) {
         this.col = 0;
     }
-    if (keycode === "down") {
+    if (keycode === 'down') {
         this.row += 1;
     }
-    if (keycode === "up") {
+    if (keycode === 'up') {
         this.row -= 1;
     }
     // Do not allow player to go off of screen.
@@ -131,7 +131,7 @@ Player.prototype.handleInput = function(keycode) {
     }
     // Player has won!
     if (this.row < 1) {
-        // Upadate the "score"
+        // Upadate the 'score'
         this.crossings += 1;
         // Send player back to start.
         this.row = 5;
@@ -142,9 +142,9 @@ Player.prototype.handleInput = function(keycode) {
 // Now instantiate your objects.
 var Biff = new Enemy('Biff');
 var Buford = new Enemy('Buford');
-var Bob = new Enemy("Bob");
-var Buffie = new Enemy("Buffie");
-var Joe = new Enemy("Buffie");
+var Bob = new Enemy('Bob');
+var Buffie = new Enemy('Buffie');
+var Joe = new Enemy('Buffie');
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [Biff, Buford, Bob, Buffie, Joe];
 // Place the player object in a variable called player
