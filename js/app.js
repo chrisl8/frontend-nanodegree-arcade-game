@@ -22,7 +22,7 @@ var Enemy = function(enemyName) {
     this.speed = randomIntFromInterval(this.topSpeed, this.bottomSpeed);
     this.hitPlayerRecently = false;
     this.hitTimeout = 0;
-}
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -42,7 +42,7 @@ Enemy.prototype.update = function(dt) {
         // Reset their speed to enhance game variability
         this.speed = randomIntFromInterval(this.topSpeed, this.bottomSpeed);
     }
-}
+};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -61,7 +61,7 @@ Enemy.prototype.render = function() {
             this.hitTimeout = 0;
         }
     }
-}
+};
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -71,16 +71,16 @@ var Player = function() {
     this.col = 0;
     this.row = 5;
     this.crossings = 0;
-}
+};
 Player.prototype.x = function() {
     return this.col * 101;
-}
+};
 Player.prototype.y = function() {
     return (this.row * 84) - 23;
-}
+};
 Player.prototype.update = function() {
     allEnemies.forEach(this.checkForCollision, this);
-}
+};
 Player.prototype.checkForCollision = function(element, index, array) {
     var playerX = this.x();
     var playerY = this.y();
@@ -97,13 +97,13 @@ Player.prototype.checkForCollision = function(element, index, array) {
 
         }
     }
-}
+};
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x(), this.y());
     ctx.font = "24pt impact";
     ctx.fillStyle = "black";
     ctx.fillText("Crossings: " + this.crossings, 300, 576);
-}
+};
 Player.prototype.handleInput = function(keycode) {
     //console.log(keycode);
     if (keycode === "right") {
@@ -136,7 +136,7 @@ Player.prototype.handleInput = function(keycode) {
         // Send player back to start.
         this.row = 5;
     }
-}
+};
 
 
 // Now instantiate your objects.
